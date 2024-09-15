@@ -6,31 +6,12 @@ import './ForgetPassword.css';
 
 const ForgetPassword = () => {
   const [Mail, setMail] = useState({ mail: '' });
-  const [otpStage, setOtpStage] = useState(false);
-  const [otp, setOtp] = useState('');
-
-  const validateEmail = (email) => {
-    const re = /\S+@\S+\.\S+/;
-    return re.test(email);
-  };
-
-
+  
   const forgetPasswordEmail = () => {
-    if (validateEmail(Mail.mail)) {
+    if (Mail.mail) {
       toast.success('Otp sent on Email successfully');
-      setOtpStage(true); // Move to OTP stage
     } else {
       toast.error('Please enter a valid email');
-    }
-  };
-
-
-  const submitOtp = () => {
-    if (otp) {
-      toast.success('OTP verified successfully');
-
-    } else {
-      toast.error('Please enter the OTP');
     }
   };
 
@@ -44,12 +25,9 @@ const ForgetPassword = () => {
           <div className="heading">
             <p className='main-heading'>Next Gen Face Authentication</p>
             <p className='sub-heading'>Forget Password</p>
-          </div>
-
-
-          {!otpStage && (
-            <>
-              <div>
+          </div>        
+            
+              <div className='password-input-wrapper'>
                 <input
                   type="email"
                   value={Mail.mail}
@@ -67,35 +45,8 @@ const ForgetPassword = () => {
                   SUBMIT
                 </button>
               </div>
-            </>
-          )}
-
-
-          {otpStage && (
-            <>
-              <div>
-                <input
-                  type="text"
-                  value={otp}
-                  onChange={(e) => setOtp(e.target.value)}
-                  placeholder="Enter OTP"
-                  className="input-field"
-                />
-              </div>
-              <div>
-                <button
-                  onClick={submitOtp}
-                  type="submit"
-                  className="submit-button verify-button"
-                >
-                  VERIFY OTP
-                </button>
-              </div>
-            </>
-          )}
-
-
-          <ToastContainer />
+            
+          <ToastContainer position="top-center" />
         </div>
       </div>
     </>

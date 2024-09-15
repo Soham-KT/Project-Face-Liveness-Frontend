@@ -3,11 +3,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import main_logo from '../Assets/main_logo.jpeg';
 import './ResetPassword.css';
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const checkPassword = () => {
     if (newPassword === confirmPassword) {
@@ -31,28 +33,33 @@ const ResetPassword = () => {
           </div>
           <h1 className='reset-heading'>Reset Password</h1>
 
-
-          <div>
+          {/* New Password Input */}
+          <div className="password-input-wrapper">
             <input
-              type="password"
+              type={showNewPassword ? 'text' : 'password'}
               value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)} // Properly update state
+              onChange={(e) => setNewPassword(e.target.value)}
               placeholder="Enter New Password"
               className="reset-input"
             />
+            <span className="toggle-password-icon" onClick={() => setShowNewPassword(!showNewPassword)}>
+              {showNewPassword ? <IoEyeOff /> : <IoEye />}
+            </span>
           </div>
 
-
-          <div>
+          {/* Confirm Password Input */}
+          <div className="password-input-wrapper">
             <input
-              type="password"
+              type={showConfirmPassword ? 'text' : 'password'}
               value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)} // Properly update state
+              onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="Confirm New Password"
               className="reset-input"
             />
+            <span className="toggle-password-icon" onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
+              {showConfirmPassword ? <IoEyeOff /> : <IoEye />}
+            </span>
           </div>
-
 
           <div>
             <button
@@ -66,8 +73,7 @@ const ResetPassword = () => {
         </div>
       </div>
 
-
-      <ToastContainer />
+      <ToastContainer position="top-center" />
     </>
   );
 };
