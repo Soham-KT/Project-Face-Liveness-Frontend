@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import loginLogo from "../Assets/logo.png";
+import loginLogo from "../Assets/main_logo.jpeg";
 import "./Login.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
