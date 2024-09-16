@@ -1,0 +1,135 @@
+.ProfilePg_body_full{
+    background: #1e1e1e;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.ProfilePg_body {
+    margin: 50px;
+    height: 48vh;
+    background-color:#282828;
+    justify-content: start;
+    align-items: center;
+    width: 30vw;
+    display:flex;
+    flex-direction: column;
+    border-color: grey;
+    box-shadow: 0 0 7px gray;
+    border-radius: 10px;
+}
+
+.ProfilePg_header_center{
+    height: 15px;
+    aspect-ratio: 1;
+    gap:15px;
+}
+
+
+.ProfilePg_main{
+    justify-content: space-between;
+    display:flex;
+    align-items: center;
+    width:100%;
+    padding-bottom: 1%;
+    height: 30%;
+}
+.ProfilePg_header_left{
+
+width:33%;
+}
+
+.ProfilePg_header_center img {
+   width: 75px;
+   height: 75px;
+   border-radius: 50%;
+   border:10px solid  #282828;
+   box-shadow: 0 0 7px gray;
+}
+.ProfilePg_header_center{
+    width: 33%;
+    flex-direction:column;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-top: -22%;
+}
+.ProfilePg_text h1{
+   font-size: 25px;
+   color: white;
+
+}
+.ProfilePg_header_right {
+    width: 33%;
+    display: flex;
+    align-items: start;
+    height: 100%;
+    justify-content:center ;  
+} 
+.ProfilePg_header_right h1{
+    font-size: 17px;
+    padding-right: 10px;
+    color: white;
+    padding-top: 20px;
+}
+
+.ProfilePg_inputs {
+    margin-top: 25px;
+    align-items: center;
+    display:flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 91%;
+}
+.ProfilePg_input {
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+    width: 100%;
+    padding-right: 5%;
+    height: 35px;
+   background: #282828;
+    border-radius: 6px;
+    position: relative;
+    color: white;
+
+}
+
+/* .ProfilePg_input span {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  } */
+  .ProfilePg_input img{
+margin:0px 30px;
+}
+.ProfilePg_input input{
+    height: 25px;
+    width: 300px;
+    border:white;
+   outline: white;
+    font-size: 16px;
+    background: grey;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+ .ProfilePg_pen-icon {
+    margin-right: 8px; 
+    font-size: 18px; 
+    color: white; 
+    vertical-align: middle; 
+  }
+
+  .ProfilePg_plus-icon{
+    color: white;
+    display: flex;
+    margin-top: -30px ;
+    justify-content: end;
+   font-size: 22px;
+   margin-right: 7px;
+
+  }
+ 
