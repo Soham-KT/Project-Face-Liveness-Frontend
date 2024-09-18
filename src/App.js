@@ -7,7 +7,7 @@ import ForgetPassword from './ForgetPassword/ForgetPassword';
 import ResetPassword from './ResetPassword/ResetPassword';
 import SignUp from './SignUp/SignUp';
 import Dashboard from './Dashboard/Dashboard';
-
+import ProfilePg from './profilepg/ProfilePg';
 
 
 function App() {
@@ -20,7 +20,8 @@ function App() {
         <Route path="/ForgetPassword" element={<ForgetPassword />} />
         <Route path="/ResetPassword" element={<ResetPassword />} />
         <Route path="/Dashboard" element={< Dashboard/>} />
-
+        <Route path="/ProfilePg" element={< ProfilePg/>} />
+        
       </Routes>
     </Router>
   );

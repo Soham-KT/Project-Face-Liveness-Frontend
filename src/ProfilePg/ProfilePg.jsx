@@ -5,10 +5,13 @@ import logo from "../Assets/logo.png";
 import { FaPlus, FaPen } from 'react-icons/fa';
 
 
-const ProfilePg = () => {
+export default function ProfilePg  () {
 
 
     const [phoneNumber, setPhoneNumber] = useState("");
+    const [showUploadPopup, setShowUploadPopup] = useState(false); 
+    const [selectedImage, setSelectedImage] = useState(null); 
+
 
     const handlePhoneNumberChange = (event) => {
         const input = event.target.value;
@@ -16,7 +19,21 @@ const ProfilePg = () => {
         setPhoneNumber(numericInput);
     };
 
-
+    const handlePlusClick = () => {
+        setShowUploadPopup(true);  
+    };
+    const handleImageUpload = (event) => {
+        const file = event.target.files[0]; 
+        if (file) {
+            const imageUrl = URL.createObjectURL(file);  
+            setSelectedImage(imageUrl); 
+            setShowUploadPopup(false);  
+        }
+    };
+    const handleClosePopup = () => {
+        setShowUploadPopup(false);  
+    };
+    
 
     return (
         <div className="ProfilePg_body_full">
@@ -27,10 +44,12 @@ const ProfilePg = () => {
 
                     <div className='ProfilePg_header_center'>
                         <div className='ProfilePg_im'>
-                            <img src={logo} alt="" />
-                            <div className='ProfilePg_plus-icon'>
-                                <FaPlus />
-                            </div>
+                        <img src={selectedImage || logo} alt="Profile" /> 
+
+                        <div className='ProfilePg_plus-icon' onClick={handlePlusClick}>
+                        <FaPlus />
+                        </div>
+
                         </div>
                         <div className="ProfilePg_text"><h1>Profile Page</h1></div>
                     </div>
@@ -54,18 +73,23 @@ const ProfilePg = () => {
                         <input type="tel" value={phoneNumber}
                             onChange={handlePhoneNumberChange} />
                     </div>
-                    <a href="" >Change Password ?</a>
+                    <a href="" className='ProfilePg_link' >Want Change Password ?</a>
 
                 </div>
 
 
-            </div></div>
+            </div>
+            {showUploadPopup && (  
+             <div className="ProfilePg_popup">
+             <div className="ProfilePg_popup_content">
+            <h2>Upload Profile Photo</h2>
+            <input type="file" accept="image/*" onChange={handleImageUpload} /> 
+            <button onClick={handleClosePopup}>Close</button>
+             </div>
+            </div>
+         )}
+
+            </div>
     );
 }
 
-
-
-
-
-
-export default ProfilePg;

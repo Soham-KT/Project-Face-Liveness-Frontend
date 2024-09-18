@@ -2,13 +2,15 @@
     background: #1e1e1e;
     width: 100vw;
     height: 100vh;
+    min-height: 100vh;
     justify-content: center;
     display: flex;
     align-items: center;
+
 }
 .ProfilePg_body {
     margin: 50px;
-    height: 48vh;
+    height: 65vh;
     background-color:#282828;
     justify-content: start;
     align-items: center;
@@ -41,8 +43,8 @@ width:33%;
 }
 
 .ProfilePg_header_center img {
-   width: 75px;
-   height: 75px;
+   width: 150px;
+   height: 150px;
    border-radius: 50%;
    border:10px solid  #282828;
    box-shadow: 0 0 7px gray;
@@ -93,6 +95,8 @@ width:33%;
     border-radius: 6px;
     position: relative;
     color: white;
+    gap:10px;
+    margin: 10px 0;
 
 }
 
@@ -111,14 +115,20 @@ margin:0px 30px;
     width: 300px;
     border:white;
    outline: white;
-    font-size: 16px;
+    font-size: 14px;
     background: grey;
     border-radius: 5px;
     margin-left: 10px;
+    flex: 1;
+    padding: 8px;
+}
+.ProfilePg_input p {
+    min-width: 100px; /* Adjust label width */
+    margin: 0; /* Remove default margins */
 }
  .ProfilePg_pen-icon {
-    margin-right: 8px; 
-    font-size: 18px; 
+    margin-right: 4px; 
+    font-size: 10px; 
     color: white; 
     vertical-align: middle; 
   }
@@ -128,8 +138,31 @@ margin:0px 30px;
     display: flex;
     margin-top: -30px ;
     justify-content: end;
-   font-size: 22px;
+   font-size: 14px;
    margin-right: 7px;
 
   }
- 
+  .ProfilePg_popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ProfilePg_popup_content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.ProfilePg_link {
+    color: rgb(26, 26, 223);
+}
+
+
+
