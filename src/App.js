@@ -7,7 +7,7 @@ import ForgetPassword from './ForgetPassword/ForgetPassword';
 import ResetPassword from './ResetPassword/ResetPassword';
 import SignUp from './SignUp/SignUp';
 import Dashboard from './Dashboard/Dashboard';
-import ProfilePg from './profilepg/ProfilePg';
+import ProfilePg from './ProfilePg/ProfilePg';
 
 
 function App() {

@@ -3,6 +3,8 @@ import { useState } from "react";
 import './ProfilePg.css';
 import logo from "../Assets/logo.png";
 import { FaPlus, FaPen } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+
 
 
 export default function ProfilePg  () {
@@ -51,29 +53,29 @@ export default function ProfilePg  () {
                         </div>
 
                         </div>
-                        <div className="ProfilePg_text"><h1>Profile Page</h1></div>
+                        <div className="ProfilePg_text"  ><h1>Profile Page</h1></div>
                     </div>
 
-                    <div className='ProfilePg_header_right'><h1>
-                        <FaPen className="ProfilePg_pen-icon" /> edit
-                    </h1> </div>
+                    <div className='ProfilePg_header_right'><div className='ProfilePg_header_pen' >
+                        <FaPen className="ProfilePg_pen-icon" /><h1> Edit
+                    </h1></div> </div>
                 </div>
                 <div className="ProfilePg_inputs">
-                    <div className="ProfilePg_input">
+                    <div className="ProfilePg_input" >
                         <p>Name : </p>
-                        <input type="text" />
+                        <input type="text" placeholder='Enter Your Name'/>
                     </div>
 
                     <div className="ProfilePg_input">
                         <p>Email : </p>
-                        <input type="email" />
+                        <input type="email" placeholder='Enter Your Email' />
                     </div>
                     <div className="ProfilePg_input">
-                        <p>Moblie No.: </p>
-                        <input type="tel" value={phoneNumber}
+                        <p>Moblie No : </p>
+                        <input type="tel" value={phoneNumber} placeholder='Enter Your Mobile Number'
                             onChange={handlePhoneNumberChange} />
                     </div>
-                    <a href="" className='ProfilePg_link' >Want Change Password ?</a>
+                    <Link to="/ResetPassword" className='ProfilePg_link' >Want to Change Password ?</Link>
 
                 </div>
 
