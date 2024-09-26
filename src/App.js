@@ -1,23 +1,21 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./App.css";
 
-import Login from './Login/Login';
+import Login from "./Login/Login";
 
-import ErrorPage from './ErrorPage/ErrorPage';
+import ErrorPage from "./ErrorPage/ErrorPage";
 
-import ForgetPassword from './ForgetPassword/ForgetPassword';
-import ResetPassword from './ResetPassword/ResetPassword';
-import SignUp from './SignUp/SignUp';
-import Dashboard from './Dashboard/Dashboard';
-import IHavePassword from './IHavePassword/IHavePassword';
-import { useState,useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
-import axios from 'axios';
-import ProfilePg from './ProfilePg/ProfilePg';
-
-
+import ForgetPassword from "./ForgetPassword/ForgetPassword";
+import ResetPassword from "./ResetPassword/ResetPassword";
+import SignUp from "./SignUp/SignUp";
+import Dashboard from "./Dashboard/Dashboard";
+import IHavePassword from "./IHavePassword/IHavePassword";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
+import Profile from "./ProfilePg/Profile";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -25,7 +23,13 @@ function App() {
   const location = useLocation(); // Get the current location
 
   useEffect(() => {
-    const publicRoutes = ["/profile","/signup", "/IHavePassword","/ForgetPassword","/reset_password"];
+    const publicRoutes = [
+      "/profile",
+      "/signup",
+      "/IHavePassword",
+      "/ForgetPassword",
+      "/reset_password",
+    ];
     const sessionId = localStorage.getItem("sessionId");
 
     // If the current route is public, skip the authentication check
@@ -42,41 +46,35 @@ function App() {
           } else {
             localStorage.removeItem("sessionId");
             setIsAuthenticated(false);
-            navigate("/"); 
+            navigate("/");
           }
         })
         .catch(() => {
           localStorage.removeItem("sessionId");
           setIsAuthenticated(false);
-          navigate("/"); 
+          navigate("/");
         });
     } else {
       setIsAuthenticated(false);
-      navigate("/"); 
+      navigate("/");
     }
   }, [navigate, location.pathname]);
 
   return (
-      <Routes>
-
-        <Route path="/" element={<Login />} />
-        <Route path="/signup" element={< SignUp/>} />
-        <Route path="/ForgetPassword" element={<ForgetPassword />} />
-        <Route path="/reset_password" element={<ResetPassword />} />
-        <Route path="/IHavePassword" element={< IHavePassword/>} />
-        <Route path="/*" element={<ErrorPage />} />
-        <Route path="/profile" element={<ProfilePg/>}></Route>
-        {
-            isAuthenticated &&
-            (
-              <>
-                <Route path="/Dashboard" element={< Dashboard/>} />
-              </>
-            )
-        }
-
-       
-      </Routes>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/ForgetPassword" element={<ForgetPassword />} />
+      <Route path="/reset_password" element={<ResetPassword />} />
+      <Route path="/IHavePassword" element={<IHavePassword />} />
+      <Route path="/*" element={<ErrorPage />} />
+      <Route path="/profile" element={<Profile />}></Route>
+      {isAuthenticated && (
+        <>
+          <Route path="/Dashboard" element={<Dashboard />} />
+        </>
+      )}
+    </Routes>
   );
 }
 
