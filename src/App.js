@@ -15,6 +15,7 @@ import { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import ProfilePg from './ProfilePg/ProfilePg';
 
 
 
@@ -24,7 +25,7 @@ function App() {
   const location = useLocation(); // Get the current location
 
   useEffect(() => {
-    const publicRoutes = ["/signup", "/IHavePassword","/ForgetPassword","/reset_password"];
+    const publicRoutes = ["/profile","/signup", "/IHavePassword","/ForgetPassword","/reset_password"];
     const sessionId = localStorage.getItem("sessionId");
 
     // If the current route is public, skip the authentication check
@@ -64,6 +65,7 @@ function App() {
         <Route path="/reset_password" element={<ResetPassword />} />
         <Route path="/IHavePassword" element={< IHavePassword/>} />
         <Route path="/*" element={<ErrorPage />} />
+        <Route path="/profile" element={<ProfilePg/>}></Route>
         {
             isAuthenticated &&
             (
